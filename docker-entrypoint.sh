@@ -7,7 +7,7 @@ _exit_err() {
 }
 
 GPG_KEY="/app/key/${GPGKEY}"
-echo $GPG_KEY
+echo ${GPG_KEY}
 echo "> Check and import private gpg key..."
 if [[ -e "${GPG_KEY}" ]]; then
   gpg2 --import "${GPG_KEY}"
