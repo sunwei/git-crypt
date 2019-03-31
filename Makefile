@@ -2,4 +2,4 @@ host ?= ihakula.com
 keyid ?= me@sunwei.xyz
 
 sync:
-	./sync.sh $(host)
+	./sync.sh $(keyid) $(host)
