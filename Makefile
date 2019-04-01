@@ -2,11 +2,23 @@ host ?= ihakula.com
 keyid ?= me@sunwei.xyz
 current_path := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-sync:
-	./sync.sh $(keyid) $(host)
-
 unlock:
 	./unlock.sh
+
+export-key:
+	gpg2 --list-secret-keys && \
+    gpg2 --export-secret-keys $(keyid) > "$(keyid).asc"
+
+decrypt:
+	docker run --rm -it \
+	 --env GPGKEY=$(keyid).asc \
+	 -v "$(current_path):/app/key" \
+	 -v "$(repo):/app/repo" \
+	 git-crypt \
+	git-crypt unlock
+
+sync:
+	./sync.sh $(keyid) $(host)
 
 build:
 	docker build -t git-crypt:latest .
@@ -16,7 +28,7 @@ push: unlock
 
 shell:
 	docker run --rm -it \
-	 --env GPGKEY=me@sunwei.xyz.asc \
+	 --env GPGKEY=$(keyid).asc \
 	 -v "$(current_path)key:/app/key" \
 	 -v "$(current_path):/app/repo" \
 	 git-crypt \

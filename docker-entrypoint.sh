@@ -19,6 +19,7 @@ REPO=/app/repo
 echo "> Check and import private gpg key..."
 if find "${REPO}" -mindepth 1 -print -quit 2>/dev/null | grep -q .; then
   cd "${REPO}" && pwd
+  git-crypt status
 else
   _exit_err "Repository not found!"
 fi
