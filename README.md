@@ -50,14 +50,17 @@ docker run --rm -it \
 ```
 
 ### Makefile
+
 1. Export gpg key
 ```console
 make export-key keyid=<your gpg key id>
 ```
+
 2. Decrypt your repo
 ```console
 make decrypt keyid=<your gpg key id> repo=</path/to/repo/you/want/to/decrypt>
 ```
+
 ### Demo
 
 [YouTube](https://youtu.be/Vaj1aNXXxpk)
