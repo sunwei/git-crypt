@@ -24,6 +24,7 @@ and [git-crypt](https://github.com/AGWA/git-crypt).
 
 ### Prerequisites
 [Docker](https://www.docker.com/)
+
 [GnuPG](https://www.gnupg.org/download/index.html)
 
 ### Installing
@@ -45,9 +46,9 @@ make decrypt keyid=<your gpg key id> repo=</path/to/repo/you/want/to/decrypt>
 ```
 ### Demo
 
-![Docker git-crypt](./assets/1.0.0.gif)
+[YouTube](https://youtu.be/Vaj1aNXXxpk)
 
-[YouTube](https://youtu.be/CoFhusw9sqA)
+[Video download](https://pan.baidu.com/s/1QJ9mR8EOSZN9hGhT72U5PA) Password:`z73m`
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details
