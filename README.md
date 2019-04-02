@@ -16,6 +16,8 @@ and [git-crypt](https://github.com/AGWA/git-crypt).
   - [Prerequisites](#prerequisites)
   - [Installing](#Installing)
 - [Usage](#-usage)
+  - [Docker](#docker)
+  - [Makefile](#makefile)
   - [Demo](#demo)
 - [License](#-license)
 
@@ -36,6 +38,18 @@ cd ./git-crypt
 ```
 
 ## Usage
+
+### Docker
+```
+docker run --rm -it \
+	 --env GPGKEY=<gpg file name> \
+	 -v "</absolute/path/to/your/gpg/folder>:/app/key" \
+	 -v "</absolute/path/to/your/encrypted/repo>:/app/repo" \
+	 git-crypt \
+	git-crypt unlock
+```
+
+### Makefile
 1. Export gpg key
 ```console
 make export-key keyid=<your gpg key id>
