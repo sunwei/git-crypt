@@ -11,8 +11,7 @@ export-key:
 
 decrypt:
 	docker run --rm -it \
-	 --env GPGKEY=$(keyid).asc \
-	 -v "$(current_path):/app/key" \
+	 -v "$(current_path)/$(keyid).asc:/app/key/gpg-private.asc" \
 	 -v "$(repo):/app/repo" \
 	 git-crypt \
 	git-crypt unlock

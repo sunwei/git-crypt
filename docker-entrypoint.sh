@@ -6,8 +6,7 @@ _exit_err() {
   exit 1
 }
 
-GPG_KEY="/app/key/${GPGKEY}"
-echo ${GPG_KEY}
+GPG_KEY="/app/key/gpg-private.asc"
 echo "> Check and import private gpg key..."
 if [[ -e "${GPG_KEY}" ]]; then
   gpg2 --import "${GPG_KEY}"
@@ -19,7 +18,6 @@ REPO=/app/repo
 echo "> Check and import private gpg key..."
 if find "${REPO}" -mindepth 1 -print -quit 2>/dev/null | grep -q .; then
   cd "${REPO}" && pwd
-#  git-crypt status
 else
   _exit_err "Repository not found!"
 fi
