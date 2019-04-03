@@ -42,7 +42,7 @@ cd ./git-crypt
 ### Docker
 ```
 docker run --rm -it \
-	 -v "</absolute/path/to/your/gpg/file>:/app/key" \
+	 -v "</absolute/path/to/your/gpg/file>:/app/key/gpg-private.asc" \
 	 -v "</absolute/path/to/your/encrypted/repo/>:/app/repo" \
 	 git-crypt \
 	git-crypt unlock
